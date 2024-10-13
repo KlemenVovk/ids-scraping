@@ -6,3 +6,4 @@
 - make sure selenium works before the exam...
 - feedback?
 - 23/24 resources?
+- we covered only a small portion of scraping, scrapy, crawling etc.
