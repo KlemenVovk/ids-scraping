@@ -1,0 +1,8 @@
+- Responsiveness
+- Try only small subsets of pages first
+- sleep(n_seconds) is your go to
+- try disabling javascript
+- practice problems from previous year, will try to prepare something before exam once we know more
+- make sure selenium works before the exam...
+- feedback?
+- 23/24 resources?
