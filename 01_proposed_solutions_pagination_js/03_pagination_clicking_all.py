@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 import json
 
-MAIN_URL = "https://quotes.toscrape.com/"
+MAIN_URL = "https://quotes.toscrape.com/js"
 print(f"Scraping URL: {MAIN_URL}")
 
 def parse_one_page(driver):

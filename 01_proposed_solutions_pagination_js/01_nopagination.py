@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import json
 
-MAIN_URL = "https://quotes.toscrape.com/"
+MAIN_URL = "https://quotes.toscrape.com/js"
 driver = webdriver.Chrome() # <- this line is usually problematic, please please contact me if you can't open and navigate to a page with Selenium
 driver.get(MAIN_URL)
 

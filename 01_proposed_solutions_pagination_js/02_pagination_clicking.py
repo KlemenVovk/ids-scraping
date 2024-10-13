@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import json
 
-MAIN_URL = "https://quotes.toscrape.com/"
+MAIN_URL = "https://quotes.toscrape.com/js"
 print(f"Scraping URL: {MAIN_URL}")
 N_PAGES_TO_SCRAPE = 5
 
@@ -26,7 +26,7 @@ driver = webdriver.Chrome()
 driver.get(MAIN_URL)
 
 final_result = []
-for i in range(N_PAGES_TO_SCRAPE):
+for i in range(N_PAGES_TO_SCRAPE - 1):
     final_result.extend(parse_one_page(driver)) # the first page is already loaded (driver.get(MAIN_URL))
     # Find and click the "Next" button
     next_button = driver.find_element(By.CSS_SELECTOR, "li.next a")
