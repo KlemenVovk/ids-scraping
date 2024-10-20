@@ -44,7 +44,7 @@ final_result = parse_one_page(driver)
 print(f"Scraped {len(final_result)} quotes.")
 
 # Save the result to a JSON file
-with open("02_infinitescroll_all_better_quotes.json", "w") as f:
+with open("02_infinitescroll_better_quotes.json", "w") as f:
     json.dump(final_result, f, indent=4)
 
 driver.close()

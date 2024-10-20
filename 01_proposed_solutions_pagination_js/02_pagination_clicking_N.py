@@ -37,7 +37,7 @@ for i in range(N_PAGES_TO_SCRAPE - 1):
     next_button.click()
 
 # Save the result to a JSON file
-with open("02_pagination_clicking_quotes.json", "w") as f:
+with open("02_pagination_clicking_N_quotes.json", "w") as f:
     json.dump(final_result, f, indent=4)
 
 driver.close()

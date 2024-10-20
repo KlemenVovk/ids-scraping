@@ -7,7 +7,7 @@ We will be scraping quotes from a site specifically prepared for learning web sc
 
 There are 100 quotes total. The above links only differ by how the data (quotes) are loaded. Even the quotes are the same and in the same order.
 
-**The solutions for sources 1. 2. and 3. are available in the corresponding numbered folders.**
+**The solutions for sources 1. 2. and 3. are available in the correspondingly numbered folders in this repo.**
 
 The results, regardless of the method used for scraping should be saved as a JSON file, containing all 100 quotes:
 

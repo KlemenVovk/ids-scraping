@@ -30,6 +30,6 @@ for link in links:
         result.append(entry)
 
 # Save the result to a JSON file
-with open("02_all_quotes.json", "w") as f:
+with open("02_static_all_quotes.json", "w") as f:
     json.dump(result, f, indent=4)
 

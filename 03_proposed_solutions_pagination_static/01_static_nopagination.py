@@ -25,6 +25,6 @@ for quote_div in quotes_divs:
     result.append(entry)
 
 # Save the result to a JSON file
-with open("01_nopagination_quotes.json", "w") as f:
+with open("01_static_nopagination_quotes.json", "w") as f:
     json.dump(result, f, indent=4)
 
