@@ -3,6 +3,8 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 import json
 
+# Scrapes all pages of quotes from https://quotes.toscrape.com/js and saves them to a JSON file.
+
 MAIN_URL = "https://quotes.toscrape.com/js"
 print(f"Scraping URL: {MAIN_URL}")
 

@@ -1,9 +1,13 @@
-Sources used:
-- https://quotes.toscrape.com/js (JS loads all data, pagination)
-- https://quotes.toscrape.com/ (static, pagination)
-- https://quotes.toscrape.com/scroll (infinite scrolling with JS)
+## Web scraping demo
 
-There are 100 quotes total. The above links only differ by how the data (quotes) are loaded.
+We will be scraping quotes from a site specifically prepared for learning web scraping. Conveniently the site has multiple versions requiring different scraping techniques:
+1. https://quotes.toscrape.com/js (A dynamic Javascript (JS) website, Selenium is needed as JS loads the quotes, 10 quotes per page, 10 pages total.)
+2. https://quotes.toscrape.com/scroll (A dynamic JS website, quotes are loaded in batches by scrolling to the bottom, Selenium is needed.)
+3. https://quotes.toscrape.com/ (A static version of the website, 10 quotes per page, 10 pages total. Selenium is not needed.)
+
+There are 100 quotes total. The above links only differ by how the data (quotes) are loaded. Even the quotes are the same and in the same order.
+
+**The solutions for sources 1. 2. and 3. are available in the corresponding numbered folders.**
 
 The results, regardless of the method used for scraping should be saved as a JSON file, containing all 100 quotes:
 
@@ -41,4 +45,23 @@ The results, regardless of the method used for scraping should be saved as a JSO
         ]
     }
 ]
+```
+
+
+
+The Python environment can be reproduced with conda from the `environment.yml` file in this repository:
+```
+conda env create -f environment.yml
+conda activate idswebscraping
+```
+
+or from scratch with conda:
+```
+conda create -n idswebscraping python=3.12 selenium beautifulsoup4 requests -c conda-forge
+conda activate idswebscraping
+```
+
+or with pip (recommended to make a virtual environment with venv first)
+```
+pip install selenium requests beautifulsoup4
 ```

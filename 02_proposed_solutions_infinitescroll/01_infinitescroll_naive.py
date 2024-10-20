@@ -1,10 +1,11 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from time import sleep
 import json
 
-MAIN_URL = "https://quotes.toscrape.com/js"
-print(f"Scraping URL: {MAIN_URL}")
-N_PAGES_TO_SCRAPE = 5
+# Scrapes all quotes on https://quotes.toscrape.com/scroll (infinite scroll) and saves them to a JSON file.
+
+MAIN_URL = "https://quotes.toscrape.com/scroll"
 
 def parse_one_page(driver):
     # Let's find all boxes with quotes (all divs that have the class "quote")
@@ -24,17 +25,21 @@ def parse_one_page(driver):
 
 driver = webdriver.Chrome()
 driver.get(MAIN_URL)
+sleep(1) # wait for the quotes to load in
 
-final_result = []
-for i in range(N_PAGES_TO_SCRAPE - 1):
-    final_result.extend(parse_one_page(driver)) # the first page is already loaded (driver.get(MAIN_URL))
-    # Find and click the "Next" button
-    next_button = driver.find_element(By.CSS_SELECTOR, "li.next a")
-    print(f"Scraping URL: {next_button.get_attribute('href')}")
-    next_button.click()
+
+# load everything by scrolling to the bottom of the page 20 times (hopefully enough :)) - this is why this method is naive (hopefully it's enough to scroll 20 times)
+for i in range(20):
+    # scroll to the bottom of the page
+    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+    sleep(0.5)
+
+# Since everything is loaded, but on one page, we can parse it all at once
+final_result = parse_one_page(driver)
+print(f"Scraped {len(final_result)} quotes.")
 
 # Save the result to a JSON file
-with open("02_pagination_clicking_quotes.json", "w") as f:
+with open("01_infinitescroll_all_stupid_quotes.json", "w") as f:
     json.dump(final_result, f, indent=4)
 
 driver.close()

@@ -2,6 +2,9 @@ from bs4 import BeautifulSoup
 import requests
 import json
 
+# Same as 01_proposed_solutions_static/01_nopagination.py but without Selenium, we are working with a static site, so BeautifulSoup and requests are enough.
+# Selenium is not needed because the site doesn't need JS to load the quotes.
+
 MAIN_URL = "https://quotes.toscrape.com"
 response = requests.get(MAIN_URL)
 soup = BeautifulSoup(response.text, "html.parser")

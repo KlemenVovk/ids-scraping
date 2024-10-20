@@ -2,6 +2,8 @@ from bs4 import BeautifulSoup
 import requests
 import json
 
+# We saved the links to pages of quotes in a file called "links.txt", so we can read it line by line and scrape each URL with requests and BeautifulSoup.
+
 links = []
 with open("links.txt") as f:
     links = f.read().splitlines()

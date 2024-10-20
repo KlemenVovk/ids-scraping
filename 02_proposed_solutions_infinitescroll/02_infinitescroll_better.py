@@ -3,6 +3,9 @@ from selenium.webdriver.common.by import By
 from time import sleep
 import json
 
+# Scrapes all quotes on https://quotes.toscrape.com/scroll (infinite scroll) and saves them to a JSON file.
+# Same as 01_infinitescroll_naive.py, but this one is better because it checks if any new quotes were loaded after scrolling to the bottom of the page.
+
 MAIN_URL = "https://quotes.toscrape.com/scroll"
 
 def parse_one_page(driver):
@@ -31,7 +34,7 @@ while True:
     previous_num_quotes = len(driver.find_elements(By.CSS_SELECTOR, "div.quote"))
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
     sleep(1)
-    # check if the number of quotes has changed
+    # check if the number of quotes has changed (if not, we've loaded everything)
     current_num_quotes = len(driver.find_elements(By.CSS_SELECTOR, "div.quote"))
     if current_num_quotes == previous_num_quotes:
         break

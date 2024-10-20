@@ -2,6 +2,8 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import json
 
+# Scrapes the first page of quotes from https://quotes.toscrape.com/js (10 quotes in total) and saves them to a JSON file.
+
 MAIN_URL = "https://quotes.toscrape.com/js"
 driver = webdriver.Chrome() # <- this line is usually problematic, please please contact me if you can't open and navigate to a page with Selenium
 driver.get(MAIN_URL)
